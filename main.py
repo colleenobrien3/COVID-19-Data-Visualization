@@ -9,16 +9,18 @@ from datetime import datetime
 import urllib
 from bs4 import BeautifulSoup
 
-quote_page = 'https://forecast.weather.gov/MapClick.php?x=161&y=208&site=phi&zmx=&zmy=&map_x=161&map_y=208#.XnKvo5NKjGI'
+quote_page = 'https://www.worldometers.info/coronavirus/country/us/'
 
 page = urllib.request.urlopen(quote_page)
 
 soup = BeautifulSoup(page, 'html.parser')
 
-name_box = soup.find(id='seven-day-forecast-list')
+name_box = soup.find_all('td')
 
 # # strip() is used to remove starting and trailing
 # name = name_box.innerText().strip()
-print(name_box.get_text())
+
+for i in name_box:
+    print(i.get_text())
 
 # print(soup.get_text())
