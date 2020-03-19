@@ -1,3 +1,4 @@
+import csv
 from flask import Flask, jsonify, request
 from peewee import *
 from playhouse.shortcuts import dict_to_model, model_to_dict
@@ -18,9 +19,21 @@ class State(BaseModel):
 db.connect()
 db.drop_tables([State])
 db.create_tables([State])
-State(name='Delaware', cases_reported=28).save()
-State(name='Maryland', cases_reported=29).save()
-State(name='DC', cases_reported=34).save()
+
+
+data = 'full_data.csv'
+
+with open('full_data.csv', newline='') as csvfile:
+    spamreader = csv.reader(csvfile, delimiter=' ', quotechar='|')
+    for row in spamreader:
+        print(row[0].split(','))
+# for i in data:
+#     State(name=i.location).save()
+#     print(i.location)
+
+# State(name='Delaware', cases_reported=28).save()
+# State(name='Maryland', cases_reported=29).save()
+# State(name='DC', cases_reported=34).save()
 app = Flask(__name__)
 
 # Create Person
