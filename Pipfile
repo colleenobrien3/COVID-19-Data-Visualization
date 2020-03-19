@@ -4,15 +4,12 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
-pylint = "*"
-autopep8 = "*"
 
 [packages]
-flask = "*"
-peewee = "*"
 psycopg2 = "*"
 requests = "*"
-beautifulsoup4 = "*"
+pewee = "*"
+psyco2-binary = "*"
 
 [requires]
 python_version = "3.7"
