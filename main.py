@@ -21,6 +21,6 @@ name_box = soup.find_all('td')
 # name = name_box.innerText().strip()
 
 for i in name_box:
-    print(i.get_text())
+    print(''.join(i.get_text().strip()))
 
 # print(soup.get_text())
