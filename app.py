@@ -12,8 +12,12 @@ class BaseModel(Model):
 
 
 class State(BaseModel):
+    date = CharField()
     name = CharField()
-    cases_reported = IntegerField()
+    new_cases = CharField()
+    new_deaths = CharField()
+    total_cases = CharField()
+    total_deaths = CharField()
 
 
 db.connect()
@@ -26,10 +30,21 @@ data = 'full_data.csv'
 with open('full_data.csv', newline='') as csvfile:
     spamreader = csv.reader(csvfile, delimiter=' ', quotechar='|')
     for row in spamreader:
-        print(row[0].split(','))
-# for i in data:
-#     State(name=i.location).save()
-#     print(i.location)
+        obj = (row[0].split(','))
+        new_cases = ''
+        new_deaths = ''
+        total_cases = ''
+        total_deaths = ''
+        if len(obj) > 2:
+            new_cases = obj[2]
+        if len(obj) > 3:
+            new_deaths = obj[3]
+        if len(obj) > 4:
+            total_cases = obj[4]
+        if len(obj) > 5:
+            total_deaths = obj[5]
+        State(date=obj[0], name=obj[1], new_cases=new_cases,
+              new_deaths=new_deaths, total_cases=total_cases, total_deaths=total_deaths).save()
 
 # State(name='Delaware', cases_reported=28).save()
 # State(name='Maryland', cases_reported=29).save()
