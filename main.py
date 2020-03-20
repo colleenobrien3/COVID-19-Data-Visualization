@@ -1,9 +1,11 @@
+
+
+import json
 from requests import get
 from requests.exceptions import RequestException
 from contextlib import closing
 from bs4 import BeautifulSoup
 
-import csv
 from datetime import datetime
 
 import urllib
@@ -45,4 +47,29 @@ for i in range(50):
     newerObj.append(newObj)
     newObj = []
 
-print(newerObj)
+f = open('dataFile.py', 'w')
+f.write(str(newerObj))
+f.close()
+
+
+data = []
+for i in newerObj:
+    data.append({
+        'name': i[0],
+        'total_cases': i[1],
+        'new_cases': i[2],
+        'total_deaths': i[3],
+        'new_deaths': i[4],
+        'total_recovered': i[5],
+        'active_cases': i[6]
+    })
+
+
+with open('data.txt', 'w') as outfile:
+    json.dump(data, outfile)
+
+
+# print(newerObj)
+
+
+# -------------------------------
