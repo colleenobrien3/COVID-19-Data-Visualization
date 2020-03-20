@@ -31,5 +31,18 @@ page = urllib.request.urlopen(quote_page)
 soup = BeautifulSoup(page, 'html.parser')
 name_box = soup.find_all('td')
 
+whole = []
+
 for i in name_box:
-    print(''.join(i.get_text().strip()))
+    whole.append(''.join(i.get_text().strip()))
+
+newObj = []
+newerObj = []
+
+for i in range(50):
+    for j in range(7):
+        newObj.append(whole.pop(0))
+    newerObj.append(newObj)
+    newObj = []
+
+print(newerObj)
