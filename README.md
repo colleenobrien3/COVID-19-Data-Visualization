@@ -6,7 +6,7 @@ I created an API that contains data about COVID-19 cases. I found a dataset onli
 Then, I decided I wanted data about specific US states, so I decided to refactor things. I found information on worldometers.com and decided I wanted to use web scraping to obtain the data. The data was updated every day, and therefore I could rerun my program each day to get the most up-to-date data. I downloaded BeautifulSoup, UrlLib, and requests, and used them in main.py to pull data from the website. I manipulated the data returned from the web scraping and placed it into json objects in data.txt using json.dump(). Once the data was in the right format, I refactored app.py in a new file, newApp.py, to create the tables in Postgresql.
 Next, I wanted to create a user friendly visualization of the data. I installed Anaconda, Seaborn, Pandas, and MatPlotLib and created the file sea_otter.py. In this file, I used these libraries to create a simple table visualization of my data. I also installed Jupyter Notebook and played with some visualizations there. Unfortunately, since my data is actually all strings, I was unable to create certain tables.
 
-![Jupyter Notebook]('./Screen Shot 2020-03-22 at 6.03.19 PM.png')
+![Jupyter Notebook](./Screen Shot 2020-03-22 at 6.03.19 PM.png)
 
 ## Paths
 
