@@ -42,7 +42,7 @@ newObj = []
 newerObj = []
 
 for i in range(50):
-    for j in range(7):
+    for j in range(8):
         newObj.append(whole.pop(0))
     newerObj.append(newObj)
     newObj = []
@@ -57,11 +57,12 @@ for i in newerObj:
     data.append({
         'name': i[0],
         'total_cases': i[1],
-        'new_cases': i[2],
-        'total_deaths': i[3],
+        'new_cases': (i[2]),
+        'total_deaths': (i[3]),
         'new_deaths': i[4],
         'total_recovered': i[5],
-        'active_cases': i[6]
+        'active_cases': i[6],
+        'source': i[7]
     })
 
 
